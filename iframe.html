@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <title>Message exchange between page and iframe</title>
+</head>    
+
+
+    <body>
+        <h1>iFrame</h1>
+        <p>Hi, I will be loaded in an iframe</p>
+        <p id='message'></p>
+        <script>
+            window.addEventListener('message', function(e){
+                let messageContainer = document.getElementById('message')
+                messageContainer.innerHTML = 'Message: '+ e.data
+                console.log("Event",e)
+            })
+        </script>
+    </body>
+</html>

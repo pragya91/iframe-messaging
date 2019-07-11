@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Message exchange between page and iframe</title>
+    <style>
+    iframe{
+        border: 1px solid green;
+    }
+    </style>
+
+</head>    
+
+
+    <body>
+        <div><iframe src="http://localhost:8080/iframe.html" id='my_iframe'></iframe></div>
+        <div><button id='post_button'>Post my message to iFrame</button></div>
+        <script>
+            window.onload = function(){
+                
+                document.getElementById('post_button').addEventListener('click', function(){
+                    var iframeContentWindow = document.getElementById('my_iframe').contentWindow;
+                    iframeContentWindow.postMessage('Hello martians', 'http://localhost:8080')
+                })
+            }
+            
+        </script>
+    </body>
+</html>
